@@ -3,6 +3,7 @@ import './App.css'
 import { type RGB } from './types';
 import ColorPalette from './components/ColorPalette.tsx';
 import { ImageUploader } from './components/ImageUploader.tsx';
+import { NoiseTexture } from './components/NoiseControls.tsx';
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
                     <ColorPalette colors={colors} />
 
                     <h2>Сгенерированная текстура</h2>
-                    {/*<NoiseTexture colors={colors} />*/}
+                    <NoiseTexture colors={colors} />
                 </div>
             )}
         </div>
