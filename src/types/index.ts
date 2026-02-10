@@ -7,4 +7,6 @@ export interface LayoutProps {
 	canvasSize?: number | string;
 	paletteOrientation?: 'horizontal' | 'vertical';
 	spacing?: number;
+	canvasWidth?: number | string;
+	canvasHeight?: number | string;
 }

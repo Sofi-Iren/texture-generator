@@ -20,7 +20,7 @@ export const genSimpleNoise = (canvas: HTMLCanvasElement | null, colors: RGB[], 
     };
 
     // Генерация текстуры с использованием seed
-    for (let i = 0; i < 5000; i++) {
+    for (let i = 0; i < 19000; i++) {
         const x = seededRandom(i * 7) * width;
         const y = seededRandom(i * 13 + 123) * height;
         const size = seededRandom(i * 3 + 456) * 5 + 1;

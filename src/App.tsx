@@ -15,8 +15,10 @@ function App() {
         photoWidth: 400,
         photoHeight: 400,
         paletteOrientation: 'horizontal' as const,
-        canvasSize: 500,
+        canvasSize: 1000,
         spacing: 20,
+        canvasWidth: 400,
+        canvasHeight: 400,
     });
 
     const isMobile = useMediaQuery('(max-width: 768px)');
@@ -29,7 +31,9 @@ function App() {
                 photoWidth: '100%',
                 photoHeight: 'calc(50vh - 170px)',
                 paletteOrientation: 'horizontal',
-                canvasSize: 300,
+                //canvasSize: 500,
+                canvasWidth: '100%',
+                canvasHeight: 'auto',
             }));
         } else {
             setLayout((prev: LayoutProps) => ({
@@ -37,7 +41,9 @@ function App() {
                 photoWidth: '40vw',
                 photoHeight: '50vh',
                 paletteOrientation: 'vertical',
-                canvasSize: 500,
+                //canvasSize: 500,
+                canvasWidth: '40vw',
+                canvasHeight: '50vh',
             }));
         }
     }, [isMobile]);
@@ -66,8 +72,9 @@ function App() {
                         </section>
                         <section className={styles.textureSection}>
                             <NoiseTexture colors={colors}
-                                width={layout.canvasSize}
-                                height={layout.canvasSize} />
+                                size={layout.canvasSize }
+                                width={layout.canvasWidth}
+                                height={layout.canvasHeight} />
                         </section>
                     </>
                 )}
