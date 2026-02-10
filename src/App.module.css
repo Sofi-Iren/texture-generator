@@ -1,0 +1,86 @@
+/* Базовые стили */
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+	margin: 0 auto;
+	height: 100vh;
+	width: calc(100vh-100px);
+	box-sizing: border-box;
+	overflow:hidden;
+}
+
+/* Общие стили для блоков */
+.photoSection, .textureSection {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+/* Мобильные (вертикально) */
+@media (max-width: 768px) {
+	.container {
+		overflow-y: auto;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		height: calc(100vh - 80px);
+	}
+
+	.photoSection, .textureSection {
+		width: 100%;
+		max-height: calc(50vh - 60px);
+		min-height: 0;
+	}
+	.photoSection {
+		flex: 1; 
+		display: flex;
+		flex-direction: column;
+	}
+
+	.palette {
+		flex-direction: row; /* Горизонтальная палитра на мобильных */
+		flex-wrap: wrap;
+		justify-content: center;
+
+		height: 100px; 
+	}
+}
+
+/* Планшеты и десктопы (рядом) */
+@media (min-width: 769px) {
+	.content {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr; /* Три колонки */
+		gap: 40px;
+		align-items: start;
+		height: calc(100vh - 80px); 
+		max-height: 100%;
+	}
+	.photoSection {
+		max-height: calc(100vh - 100px);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.palette {
+		flex-direction: column; /* Вертикальная палитра на десктопе */
+		align-items: center;
+		width: 42px;
+		max-height: calc(100vh - 100px); 
+		overflow-y: auto;
+	}
+}
+
+/* Большие экраны */
+/*@media (min-width: 1024px) {
+	.content {
+		grid-template-columns: 1fr auto 1fr; 
+	}
+} */

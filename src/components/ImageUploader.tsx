@@ -6,12 +6,14 @@ import ColorThief from 'colorthief';
 interface ImageUploaderProps {
     onImageLoad: (image: HTMLImageElement, colors: RGB[]) => void;
     onError?: (error: string) => void;
+    width?: number | string;
+    height?: number | string;
 }
 
 const errImg = 'Не удалось загрузить изображение';
 const errUnknown = 'Неизвестная ошибка';
 
-export const ImageUploader = ({ onImageLoad, onError }: ImageUploaderProps) => {
+export const ImageUploader = ({ onImageLoad, width, height, onError }: ImageUploaderProps) => {
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const objectUrlRef = useRef<string | null>(null);
 
@@ -71,11 +73,16 @@ export const ImageUploader = ({ onImageLoad, onError }: ImageUploaderProps) => {
             />
             {previewUrl && (
                 <div>
-                    <h4>Предпросмотр:</h4>
                     <img
                         src={previewUrl}
                         alt="Preview"
-                        style={{ maxWidth: '300px' }}
+                        style={{
+                            paddingTop:'40px',
+                            width: 'auto',
+                            height: 'auto',
+                            maxWidth: width,
+                            maxHeight: height
+                        }}
                     />
                 </div>
             )}

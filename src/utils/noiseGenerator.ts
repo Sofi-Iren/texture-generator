@@ -1,11 +1,13 @@
 //Генератор шума (Perlin/Simplex)
 import { type RGB } from '../types';
 
-export const genSimpleNoise = (canvas: HTMLCanvasElement | null, colors: RGB[], textureSeed: number, width: number, height: number) => {
+export const genSimpleNoise = (canvas: HTMLCanvasElement | null, colors: RGB[], textureSeed: number) => {
     if (!canvas || colors.length === 0) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    const width = canvas.width;
+    const height = canvas.height;
 
     // Очищаем canvas
     ctx.clearRect(0, 0, width, height);
