@@ -1,5 +1,6 @@
 //Загрузка фото
-import { type RGB } from '../types';
+import { type RGB } from '../../types';
+import styles from './ImageUploader.module.css';
 import { useRef, useState, useEffect } from 'react';
 import ColorThief from 'colorthief';
 
@@ -74,12 +75,10 @@ export const ImageUploader = ({ onImageLoad, width, height, onError }: ImageUplo
             {previewUrl && (
                 <div>
                     <img
+                        className={styles.baseImg }
                         src={previewUrl}
                         alt="Preview"
-                        style={{
-                            paddingTop:'40px',
-                            width: 'auto',
-                            height: 'auto',
+                        style={{                             
                             maxWidth: width,
                             maxHeight: height
                         }}

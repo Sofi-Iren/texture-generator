@@ -1,0 +1,17 @@
+.baseImg {
+	padding-top: 40px;
+	width: auto;
+	height: auto;
+}
+/* Мобильные (вертикально) */
+@media (max-width: 768px) {
+	.baseImg {
+	}
+}
+/* Планшеты и десктопы (рядом) */
+@media (min-width: 769px) {
+	.baseImg {
+		display: flex;
+		justify-content: flex-end;
+	}
+}

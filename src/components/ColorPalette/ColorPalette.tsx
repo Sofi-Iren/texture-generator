@@ -1,5 +1,6 @@
 //Отображение палитры
-import { type RGB } from '../types'; 
+import { type RGB } from '../../types';
+import styles from './ColorPalette.module.css';
 
 interface ColorPaletteProps {
     colors: RGB[]; // Массив цветов [R,G,B]
@@ -18,14 +19,10 @@ const ColorPalette = ({ colors, orientation = 'horizontal' }: ColorPaletteProps)
           justifyContent: 'center'
       }}>
       {colors.map((color, idx) => (
-        <div
-          key={idx}
+          <div
+              key={idx} className={ styles.colorItem}
               style={{
-                  width: '40px',
-                  height: '40px',
                   backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})`,
-                  borderRadius: '4px',
-                  border: '1px solid #ccc'                  
               }}
           title={`RGB: ${color.join(', ')}`}
         />

@@ -2,9 +2,9 @@ import { useState, useEffect} from 'react';
 import './App.css';
 import styles from './App.module.css';
 import { type RGB, type LayoutProps } from './types';
-import ColorPalette from './components/ColorPalette.tsx';
-import { ImageUploader } from './components/ImageUploader.tsx';
-import { NoiseTexture } from './components/NoiseControls.tsx';
+import ColorPalette from './components/ColorPalette/ColorPalette.tsx';
+import { ImageUploader } from './components/ImageUploader/ImageUploader.tsx';
+import { NoiseTexture } from './components/NoiseControls/NoiseControls.tsx';
 import { useMediaQuery } from './hooks/useMediaQuery.tsx';
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
     useEffect(() => {
         if (isMobile) {
             //Layout does not depend on isMobile => not a problem for loop 
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setLayout((prev: LayoutProps) => ({
                 ...prev,
                 photoWidth: '100%',
