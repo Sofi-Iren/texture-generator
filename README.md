@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# Texture Generator - Генератор текстур на основе изображений
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19.2.0-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Currently, two official plugins are available:
+Интерактивный генератор текстур и шумовых паттернов на основе цветовой палитры загруженных изображений. Pet-проект для изучения React и генеративного искусства.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- ## 🚀 Демо
 
-## React Compiler
+[Ссылка на демо-сайт] -->
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Возможности
 
-## Expanding the ESLint configuration
+- 📤 Загрузка изображений любого формата
+- 🎨 Автоматическое извлечение доминирующих цветов
+- 🎭 Генерация текстуры на основе цветовой палитры
+- 📱 Адаптивный интерфейс (десктоп + мобильные)
+- [ ] 🎛️ Регулировка параметров шума
+- 🖼️ Canvas-визуализация в реальном времени
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Технологии
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19** + TypeScript
+- **Vite** для сборки
+- **ColorThief** для извлечения цветовой палитры
+- **Canvas API** для генерации текстур
+- **CSS Grid/Flexbox** для адаптивной верстки
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📦 Установка и запуск
+```bash
+# Клонирование репозитория
+git clone https://github.com/Sofi-Iren/texture-generator.git
+cd texture-generator
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Сборка для production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 Использование
+Загрузите изображение через кнопку или перетаскиванием
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Система автоматически определит доминирующие цвета
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Настройте параметры генерации шума
+
+Экспортируйте результат в PNG формате
+
+## 📁 Структура проекта
+```text
+src/
+├── components/     # React компоненты
+│   ├── ImageUploader
+│   ├── ColorPalette
+│   └── NoiseControls
+├── hooks/         # Кастомные хуки
+├── types/         # TypeScript типы
+└── utils/         # Вспомогательные функции
 ```
+
+## 📄 Лицензии
+Этот проект распространяется под лицензией MIT. См. файл [LICENSE](LICENSE).
+
+Используемые библиотеки
+React & React DOM - MIT License
+
+ColorThief - MIT License
+
+Vite - MIT License
+
+TypeScript - Apache 2.0 License
+
+Коммерческое использование:  
+Вы можете свободно использовать, модифицировать и распространять этот код, включая размещение рекламы, при условии сохранения оригинального уведомления об авторских правах и лицензии MIT.
+
+## 🔗 Ссылки
+[Документация React](https://ru.legacy.reactjs.org/docs/getting-started.html)
+
+[Color Thief библиотека](https://lokeshdhakar.com/projects/color-thief/)
+
+[Canvas API документация](https://developer.mozilla.org/ru/docs/Web/API/Canvas_API/Tutorial)
+
+## 🤝 Вклад в проект
+Хотя это пет-проект, я открыта к предложениям и улучшениям. 
+
+## 📧 Контакты
+[Sofi-Iren](SofiIrenDev@mail.ru)
