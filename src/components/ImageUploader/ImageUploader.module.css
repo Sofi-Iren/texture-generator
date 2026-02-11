@@ -10,8 +10,11 @@
 }
 /* Планшеты и десктопы (рядом) */
 @media (min-width: 769px) {
-	.baseImg {
+	.imgWrapper {
 		display: flex;
 		justify-content: flex-end;
+	}
+	.baseImg {
+		
 	}
 }

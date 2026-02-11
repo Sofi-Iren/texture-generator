@@ -73,7 +73,7 @@ export const ImageUploader = ({ onImageLoad, width, height, onError }: ImageUplo
                 onChange={handleFileSelect}
             />
             {previewUrl && (
-                <div>
+                <div className={ styles.imgWrapper} >
                     <img
                         className={styles.baseImg }
                         src={previewUrl}
