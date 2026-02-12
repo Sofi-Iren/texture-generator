@@ -67,18 +67,25 @@ export const ImageUploader = ({ onImageLoad, width, height, onError }: ImageUplo
 
     return (
         <div>
-            <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileSelect}
-            />
+            <div className={styles.buttonGroup} >
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileSelect}
+                    className={styles.fileInput}
+                    id="srcFileInput"
+                />
+                <label htmlFor="srcFileInput" className="customButton">
+                    Выбрать изображение
+                </label>
+            </div>
             {previewUrl && (
-                <div className={ styles.imgWrapper} >
+                <div className={styles.imgWrapper} >
                     <img
-                        className={styles.baseImg }
+                        className={styles.baseImg}
                         src={previewUrl}
                         alt="Preview"
-                        style={{                             
+                        style={{
                             maxWidth: width,
                             maxHeight: height
                         }}
