@@ -27,11 +27,19 @@
 .slider{
 	width: 185px;
 }
-.controlGroup {
+.controlGroup, .checkboxGroup {
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
 }
 .controlGroup label{
 	margin: 2px;
+}
+label.disabled {
+	display: none;
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+div.disabled {
+	display: none;
 }

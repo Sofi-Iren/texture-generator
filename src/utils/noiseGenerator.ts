@@ -191,3 +191,87 @@ export const generatePerlinTexture = (
 
     ctx.putImageData(imageData, 0, 0);
 };
+
+export const generatePerlinTextureRGB = (
+    canvas: HTMLCanvasElement | null,
+    colors: RGB[],
+    scale: number = 0.1
+) => {
+    if (!canvas || colors.length === 0) return;
+    const width: number = canvas.width;
+    const height: number = canvas.height;
+    const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
+    const noise = new PerlinNoise();
+    const imageData = ctx.createImageData(width, height);
+    const data = imageData.data;
+
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            const idx = (y * width + x) * 4;
+
+            // Три независимых канала с разными частотами
+            const r_val = noise.octaveNoise2D(x * scale * 1.0, y * scale * 1.0, 4, 0.5);
+            const g_val = noise.octaveNoise2D(x * scale * 1.3, y * scale * 1.3, 4, 0.5);
+            const b_val = noise.octaveNoise2D(x * scale * 1.7, y * scale * 1.7, 4, 0.5);
+
+            if (colors.length === 0) {
+                data[idx] = r_val * 255;
+                data[idx + 1] = g_val * 255;
+                data[idx + 2] = b_val * 255;
+            } else {
+                // Интерполяция для каждого канала
+                const getColor = (val: number, channelIndex: 0 | 1 | 2) => {
+                    const segment = val * (colors.length - 1);
+                    const index = Math.floor(segment);
+                    const t = segment - index;
+
+                    const c1 = colors[index];
+                    const c2 = colors[Math.min(index + 1, colors.length - 1)];
+
+                    return c1[channelIndex] * (1 - t) + c2[channelIndex] * t;
+                };
+
+                data[idx] = getColor(r_val, 0);
+                data[idx + 1] = getColor(g_val, 1);
+                data[idx + 2] = getColor(b_val, 2);
+            }
+
+            data[idx + 3] = 255;
+        }
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+};
+
+export const generatePerlinTextureZones = (
+    canvas: HTMLCanvasElement | null,
+    colors: RGB[],
+    scale: number = 0.1
+) => {
+    if (!canvas || colors.length === 0) return;
+    const width: number = canvas.width;
+    const height: number = canvas.height;
+    const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
+    const noise = new PerlinNoise();
+    const imageData = ctx.createImageData(width, height);
+    const data = imageData.data;
+
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            const idx = (y * width + x) * 4;
+
+            const value = noise.octaveNoise2D(x * scale, y * scale, 4, 0.5);
+
+            // Дискретные зоны — каждый пиксель получает один цвет из палитры
+            const colorIndex = Math.floor(value * colors.length);
+            const color = colors[Math.min(colorIndex, colors.length - 1)];
+
+            data[idx] = color[0];
+            data[idx + 1] = color[1];
+            data[idx + 2] = color[2];
+            data[idx + 3] = 255;
+        }
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+};
