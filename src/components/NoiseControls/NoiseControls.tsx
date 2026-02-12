@@ -40,12 +40,12 @@ export const NoiseTexture = ({ colors, width = 400, height = 300, size = 400 }: 
             <div className={styles.buttonGroup} >
                 <label className='customButton' onClick={handleSave}>
                     Сохранить
-                </label> 
-                <label className='customButton'  onClick={handleRegenerate}>
+                </label>
+                <label className='customButton' onClick={handleRegenerate}>
                     Перегенерировать
-                </label>  
+                </label>
                 <div className={styles.controlGroup}>
-                    <label>Количество точек: {pointCount}</label>
+                    <label >Количество точек: {pointCount}</label>
                     <input
                         type="range"
                         min={1}
@@ -58,8 +58,8 @@ export const NoiseTexture = ({ colors, width = 400, height = 300, size = 400 }: 
                 </div>
             </div>
         )}
-        <div className={ styles.canvasWrapper} >
-            <canvas className={ styles.canvas}  ref={canvasRef} width={size} height={size} style={{
+        <div className={styles.canvasWrapper} >
+            <canvas className={styles.canvas} ref={canvasRef} width={size} height={size} style={{
                 maxWidth: width,
                 maxHeight: height,
             }} />

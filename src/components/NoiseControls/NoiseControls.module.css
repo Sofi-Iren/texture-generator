@@ -1,6 +1,6 @@
 ﻿.canvasWrapper {
 	aspect-ratio: 1 / 1;
-	padding-top: 10px;
+	padding-top: 8px;
 }
 .canvas {
 	width: auto;
@@ -24,4 +24,15 @@
 		display: flex; 
 		justify-content: flex-start;
 	}
+}
+.slider{
+	width: 185px;
+}
+.controlGroup {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.controlGroup label{
+	margin: 2px;
 }
