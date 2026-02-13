@@ -4,7 +4,7 @@ import styles from './App.module.css';
 import { type RGB, type LayoutProps } from './types';
 import ColorPalette from './components/ColorPalette/ColorPalette.tsx';
 import { ImageUploader } from './components/ImageUploader/ImageUploader.tsx';
-import { NoiseTexture } from './components/NoiseControls/NoiseControls.tsx';
+import { NoiseTexture } from './components/NoiseTexture/NoiseTexture.tsx';
 import { useMediaQuery } from './hooks/useMediaQuery.tsx';
 
 function App() {

@@ -1,0 +1,13 @@
+.controlGroup{
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.controlGroup label {
+	margin: 2px;
+}
+
+.slider {
+	width: 185px;
+}

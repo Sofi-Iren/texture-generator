@@ -2,7 +2,8 @@
 import { type RGB } from '../../types';
 import { useRef, useEffect, useState } from 'react';
 import { genSimpleNoise, generatePerlinTexture, generatePerlinTextureRGB, generatePerlinTextureZones } from '../../utils/noiseGenerator';
-import styles from './NoiseControls.module.css';
+import styles from './NoiseTexture.module.css';
+import { Slider } from '../../components/ui';
 interface NoiseTextureProps {
     colors: RGB[];
     width?: string | number;
@@ -74,31 +75,22 @@ export const NoiseTexture = ({ colors, width = 400, height = 300, size = 400 }: 
                     Сохранить
                 </label>                 
                 {!perlin ? (
-                    <div className={styles.controlGroup}>
-                        <label>Количество точек: {pointCount}</label>
-                        <input
-                            type="range"
-                            min={1}
-                            max={50000}
-                            step={25}
-                            value={pointCount}
-                            onChange={(e) => setPointCount(parseInt(e.target.value))}
-                            className={styles.slider}
-                        />
-                    </div>
+                    <Slider title='Количество точек'
+                        key="points"
+                        min={1}
+                        max={50000}
+                        step={25}
+                        value={pointCount}
+                        handler={setPointCount} />
                 ) : (
-                    <div className={styles.controlGroup}>
-                        <label>Масштаб шума: {scale}</label>
-                        <input
-                            type="range"
-                            min={0.001}
-                            max={0.1}
-                            step={0.001}
-                            value={scale}
-                            onChange={(e) => setScale(parseFloat(e.target.value))}
-                            className={styles.slider}
-                        />
-                    </div>
+                    <Slider title='Масштаб шума'
+                        key="scale"
+                        min={0.001}
+                        max={0.1}
+                        step={0.001}
+                        value={scale}
+                        handler={setScale}
+                    />
                 )}
                 <div className={styles.checkboxGroup}>
                     <label className={styles.checkboxLabel}>
