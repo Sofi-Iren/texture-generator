@@ -91,4 +91,4 @@ TypeScript - Apache 2.0 License
 Хотя это пет-проект, я открыта к предложениям и улучшениям. 
 
 ## 📧 Контакты
-[Sofi-Iren](SofiIrenDev@mail.ru)
+[Sofi-Iren](mailto:SofiIrenDev@mail.ru)
