@@ -3,6 +3,7 @@
 ![React](https://img.shields.io/badge/React-19.2.0-blue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
+[![Deploy](https://github.com/sofi-iren/texture-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/username/texture-generator/actions/workflows/deploy.yml)
 
 Интерактивный генератор текстур и шумовых паттернов на основе цветовой палитры загруженных изображений. Pet-проект для изучения React и генеративного искусства.
 
