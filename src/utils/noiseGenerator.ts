@@ -57,10 +57,11 @@ class PerlinNoise {
         const me = this;
 
         // Перемешиваем с seed если нужно
-        if (seed) {
+        if (seed !== undefined) {
+            let currentSeed: number = seed;
             const seededRandom = (max: number) => {
-                seed = (seed * 9301 + 49297) % 233280;
-                return Math.floor((seed / 233280) * max);
+                currentSeed = (currentSeed * 9301 + 49297) % 233280;
+                return Math.floor((currentSeed / 233280) * max);
             };
 
             for (let i = 0; i < me.permutation.length; i++) {
