@@ -1,7 +1,14 @@
 {
   "name": "texture-generator",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
+  "author": "Sofia Ugrik",
+  "license": "MIT",
+  "homepage": "https://Sofi-Iren.github.io/texture-generator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sofi-Iren/texture-generator.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
