@@ -81,7 +81,8 @@ export const NoiseTexture = ({ colors, width = 400, height = 300, size = 400 }: 
                         max={50000}
                         step={25}
                         value={pointCount}
-                        handler={setPointCount} />
+                        handler={setPointCount}
+                        debounce={10} />
                 ) : (
                     <Slider title='Масштаб шума'
                         key="scale"
@@ -90,6 +91,7 @@ export const NoiseTexture = ({ colors, width = 400, height = 300, size = 400 }: 
                         step={0.001}
                         value={scale}
                         handler={setScale}
+                        debounce={20}
                     />
                 )}
                 <div className={styles.checkboxGroup}>
